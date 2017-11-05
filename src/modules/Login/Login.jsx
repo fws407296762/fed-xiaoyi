@@ -1,24 +1,11 @@
 import React from "react";
-var createReactClass = require('create-react-class');
-// export default class Login extends React.Component{
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             value:"付文松"
-//         };
-//     }
-//
-//     render(){
-//         return (
-//             <input type="text" value={this.state.value} onChange={this.handleChange}/>
-//         )
-//     }
-// };
-
+import FormItem from "../form-item";
+import "./Login.scss";
+let createReactClass = require('create-react-class');
 const Login = createReactClass({
     getInitialState(){
         return {
-            usename:"付文松",
+            usename:"",
             passport:""
         }
     },
@@ -38,17 +25,13 @@ const Login = createReactClass({
     },
     render(){
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="">
-                    用户名：
-                    <input type="text"  value={this.state.usename} onChange={this.handleUserChange}/>
-                </label>
-                <label htmlFor="">
-                    密码：
-                    <input type="password" value={this.state.passport} onChange={this.handlePassportChange} />
-                </label>
-                <input type="submit" value="登陆"/>
-            </form>
+            <div className="login-box">    //人脸识别登陆
+                <form className="login-form" onSubmit={this.handleSubmit}>
+                    <FormItem value={this.state.usename} onChange={this.handleUserChange}/>
+                    <FormItem type="passport" value={this.state.passport} onChange={this.handlePassportChange}/>
+                    <input type="submit" value="登陆"/>
+                </form>
+            </div>
         )
     }
 });

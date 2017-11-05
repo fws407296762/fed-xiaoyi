@@ -9,11 +9,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");  //提取文本到一个文件
 
 let extractCss = new ExtractTextPlugin({    //提取 CSS 文件到 reset.css 文件中
-    filename:"reset.css",
+    filename:"./static/css/reset.css",
     allChunks:true
 });
 let extractScss = new ExtractTextPlugin({  //提取 SCSS 文件到 app.css 文件中
-    filename:"static/css/app.css",
+    filename:"./static/css/app.css",
     allChunks:true
 });
 
@@ -97,7 +97,7 @@ const config = {
         extractScss
     ],
     resolve: {
-        extensions:[".js",".jsx"]
+        extensions:[".js",".jsx",".scss"]
     },
     devServer: {
         host:"www.shadouyouquan.com",
