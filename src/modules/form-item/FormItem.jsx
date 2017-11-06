@@ -12,10 +12,14 @@ class FormItem extends React.Component{
         if(isLabel){
             label = <label htmlFor="">{isLabel}</label>
         }
+        const children = React.Children.map(this.props.children,(child)=>{
+            return child;
+        })
         return (
             <div className="form-item">
                 {label}
                 <div className="form-input-wrapper">
+                    {children}
                     <input type={this.props.type} value={this.props.value} onChange={this.props.onChange} className="form-item-control" />
                 </div>
             </div>
@@ -31,7 +35,8 @@ FormItem.propTypes = {
     value:PropTypes.string,
     onChange:PropTypes.func,
     type:PropTypes.string,
-    label:PropTypes.string
+    label:PropTypes.string,
+    children:PropTypes.node
 }
 
 export default FormItem;

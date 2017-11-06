@@ -23,12 +23,15 @@ const Login = createReactClass({
         console.log(this.state.usename,this.state.passport)
         event.preventDefault();
     },
-    render(){
+    render(){ /*人脸识别登陆*/
         return (
-            <div className="login-box">    //人脸识别登陆
+            <div className="login-box">
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <FormItem value={this.state.usename} onChange={this.handleUserChange}/>
-                    <FormItem type="passport" value={this.state.passport} onChange={this.handlePassportChange}/>
+                    <FormItem value={this.state.usename} onChange={this.handleUserChange}>
+                        <span>你好1</span>
+                        <span>你好2</span>
+                    </FormItem>
+                    <FormItem type="passport" value={this.state.passport} onChange={this.handlePassportChange}></FormItem>
                     <input type="submit" value="登陆"/>
                 </form>
             </div>
