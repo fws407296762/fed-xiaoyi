@@ -1,0 +1,28 @@
+.form-item{
+    margin-bottom:10px;
+    .form-input-wrapper{
+
+        position: relative;
+        .icon{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            left:7px;
+        }
+        .form-item-control{
+            border: none;
+            width:100%;
+            padding:10px 10px 10px 30px;
+            border:1px solid #ddd;
+            border-radius: 4px;
+            &:hover{
+                border-color:#3fb47d;
+            }
+            &:focus{
+                outline: none;
+                border-color:#3fb47d;
+                box-shadow: 0 0 3px #3fb47d;
+            }
+        }
+    }
+}

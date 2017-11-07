@@ -20,7 +20,7 @@ class FormItem extends React.Component{
                 {label}
                 <div className="form-input-wrapper">
                     {children}
-                    <input type={this.props.type} value={this.props.value} onChange={this.props.onChange} className="form-item-control" />
+                    <input type={this.props.type} placeholder={this.props.placeholder} value={this.props.value} onChange={this.props.onChange} className="form-item-control" />
                 </div>
             </div>
         )
@@ -36,7 +36,8 @@ FormItem.propTypes = {
     onChange:PropTypes.func,
     type:PropTypes.string,
     label:PropTypes.string,
-    children:PropTypes.node
+    children:PropTypes.node,
+    placeholder:PropTypes.string
 }
 
 export default FormItem;

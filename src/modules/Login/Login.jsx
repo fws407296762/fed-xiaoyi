@@ -27,12 +27,13 @@ const Login = createReactClass({
         return (
             <div className="login-box">
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <FormItem value={this.state.usename} onChange={this.handleUserChange}>
-                        <span>你好1</span>
-                        <span>你好2</span>
+                    <FormItem placeholder="请输入用户名" value={this.state.usename} onChange={this.handleUserChange}>
+                        <i className="icon iconfont icon-user">&#xe634;</i>
                     </FormItem>
-                    <FormItem type="passport" value={this.state.passport} onChange={this.handlePassportChange}></FormItem>
-                    <input type="submit" value="登陆"/>
+                    <FormItem placeholder="请输入密码" type="passport" value={this.state.passport} onChange={this.handlePassportChange}>
+                        <i className="icon iconfont icon-passport">&#xe615;</i>
+                    </FormItem>
+                    <input type="submit" className="xy-btn" value="登陆"/>
                 </form>
             </div>
         )
