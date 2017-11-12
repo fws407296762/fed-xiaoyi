@@ -19,8 +19,12 @@ let extractScss = new ExtractTextPlugin({  //提取 SCSS 文件到 app.css 文�
 
 const config = {
     context: path.resolve(__dirname,"./src"),
+    cache: true,
     entry:{
-        app:["./main.js"],
+        app:[
+            'react-hot-loader/patch',
+            "./main.js"
+        ],
         vendors:[
             "react",
             "react-dom",
@@ -39,7 +43,14 @@ const config = {
                 exclude: [
                     path.resolve(__dirname, "node_modules")
                 ],
-                loader:"babel-loader"
+                use:[
+                    "babel-loader"
+                ],
+            },
+            {
+                test: /\.js$/,
+                loaders: ['react-hot-loader/webpack', 'babel-loader'],
+                include: path.join(__dirname, 'src')
             },
             {
                 test:/\.(css)$/,   //对 css 文件进行处理，文本的后缀正则一定要和 scss 有区别，不然执行ExtractTextPlugin会报错
@@ -74,8 +85,8 @@ const config = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name:["vendors"],
-            filename:"static/js/vendors.js"
+            name:"vendor",
+            filename:"static/js/vendor.js"
         }), //合并公共部分
         new HtmlWebpackPlugin({
             template:"./index.html",
@@ -92,16 +103,18 @@ const config = {
             uglifyOptions:{
             }
         }),
-        new webpack.HotModuleReplacementPlugin(),
         extractCss,
-        extractScss
+        extractScss,
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         extensions:[".js",".jsx",".scss"]
     },
     devServer: {
         host:"www.shadouyouquan.com",
-        inline:true
+        inline:true,
+        hot:true,
+        compress:true
     }
 };
 

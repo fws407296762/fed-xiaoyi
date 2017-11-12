@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --https --content-base './build/'"
+    "dev": "webpack-dev-server --https --hot"
   },
   "author": "",
   "license": "ISC",
@@ -20,10 +20,13 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-include-assets-plugin": "^1.0.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
+    "react-hot-loader": "^3.1.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
