@@ -1,0 +1,21 @@
+html,body,#root,.router-view,.transfer-box{
+    height:100%;
+}
+.transfer-box{
+    position: relative;
+}
+.xy-box{
+    position: absolute;
+}
+.bd-box{
+    position: absolute;
+}
+.move-box{
+    position: absolute;
+    width:10px;
+    height:100%;
+    background: #f0f0f0;
+    cursor: move;
+    left:50%;
+    margin-left:-5px;
+}

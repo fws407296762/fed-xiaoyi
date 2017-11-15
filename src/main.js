@@ -19,7 +19,6 @@ render(App);
 
 if(module.hot){
     module.hot.accept('./App', () => {
-        console.log(App)
         render(App)
     });
 }

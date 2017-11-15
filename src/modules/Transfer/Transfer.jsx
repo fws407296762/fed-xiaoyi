@@ -3,3 +3,20 @@
  *
  *
  * */
+
+import React from "react";
+import "./Transfer.scss";
+export default class Transfer extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return (
+            <div className="transfer-box">
+                <div className="xy-box"></div>
+                <div className="bd-box"></div>
+                <div className="move-box"></div>
+            </div>
+        )
+    }
+}
