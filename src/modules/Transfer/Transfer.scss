@@ -4,18 +4,14 @@ html,body,#root,.router-view,.transfer-box{
 .transfer-box{
     position: relative;
 }
-.xy-box{
-    position: absolute;
-}
-.bd-box{
-    position: absolute;
+.split{
+    float: left;
+    height:100%;
 }
 .move-box{
-    position: absolute;
+    float: left;
     width:10px;
     height:100%;
     background: #f0f0f0;
-    cursor: move;
-    left:50%;
-    margin-left:-5px;
+    cursor: ew-resize;
 }

@@ -13,10 +13,19 @@ export default class Transfer extends React.Component{
     render(){
         return (
             <div className="transfer-box">
-                <div className="xy-box"></div>
-                <div className="bd-box"></div>
+                <div id="xyBox" className="split xy-box"></div>
                 <div className="move-box"></div>
+                <div id="bdBox" className="split bd-box"></div>
             </div>
         )
+    }
+    componentDidMount(){
+        let eleWidth = document.documentElement.clientWidth;
+        let $xyBox = document.getElementById("xyBox");
+        let $bdBox = document.getElementById("bdBox");
+        let $moveBox = document.querySelector(".move-box");
+        $xyBox.style.width = "calc(50% - 5px)";
+        $bdBox.style.width = "calc(50% - 5px)";
+        $moveBox.addEventListener("")
     }
 }
