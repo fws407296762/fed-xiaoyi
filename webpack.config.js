@@ -28,7 +28,8 @@ const config = {
         vendors:[
             "react",
             "react-dom",
-            "react-router"
+            "react-router",
+            "whatwg-fetch"
         ]
     },
     output: {
