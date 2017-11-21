@@ -33,7 +33,13 @@ export default class Transfer extends React.Component{
     }
     componentDidMount(){
         this.initTransfer();
-        fetch("http://www.changtangkou.com:8090/api/xiaoyi/login")
+        fetch("http://www.changtangkou.com:8090/api/xiaoyi/login",{
+            method:"POST",
+            body:"account=17720440292&password=Lyq2512125",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
             .then(function(response){
                 console.log(response)
             })
