@@ -22,7 +22,6 @@ const config = {
     cache: true,
     entry:{
         app:[
-            'react-hot-loader/patch',
             "./main.js"
         ],
         vendors:[

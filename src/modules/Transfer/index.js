@@ -3,5 +3,4 @@
  */
 
 import Transfer from "./Transfer.jsx";
-
-export default Transfer;
+export default from "./Transfer.jsx" ;
