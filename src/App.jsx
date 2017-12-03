@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/createHashHistory';
 import Login from "./modules/Login";
 import Transfer from "./modules/Transfer/Transfer.jsx";
 import "./style/reset.css";
+
 const history = createBrowserHistory();
 class App extends React.Component{
     render(){

@@ -72,7 +72,7 @@ export default class Transfer extends React.Component{
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
-        })
+        });
     }
     render(){
         let loginStatus = this.state.loginStatus;
