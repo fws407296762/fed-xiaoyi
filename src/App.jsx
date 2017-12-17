@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import {Router,Route} from "react-router";
 import createBrowserHistory from 'history/createHashHistory';
 import Login from "./modules/Login";
-import Transfer from "./modules/Transfer/Transfer.jsx";
+import Transfer from "./modules/Transfer";
 import "./style/reset.css";
 
 const history = createBrowserHistory();

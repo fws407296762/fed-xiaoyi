@@ -16,3 +16,17 @@ html,body,#root,.router-view,.transfer-box{
     background: #f0f0f0;
     cursor: ew-resize;
 }
+.xy-transition-enter{
+    opacity:0.01;
+}
+.xy-transition-enter.xy-transition-enter-active{
+    opacity:1;
+    transition:opacity 20s ease-in;
+}
+.xy-transition-exit{
+    opacity:1;
+}
+.xy-transition-exit.xy-transition-exit-active {
+    opacity: 0.01;
+    transition: opacity 20s ease-in;
+}

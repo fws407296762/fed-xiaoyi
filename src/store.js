@@ -1,9 +1,10 @@
 /**
- * Created by fws on 2017/12/3.
+ * Created by fws on 2017/12/10.
  */
-import {createStore,applyMiddleware,compose} from 'redux';
-import  rootReducers from './reducers/index';
+import {createStore} from "redux";
 
-const store = createStore(rootReducers);
+import reducer from "./reducer";
+
+const store = createStore(reducer);
 
 export default store;
