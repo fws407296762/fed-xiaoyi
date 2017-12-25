@@ -80,6 +80,10 @@ const config = {
                         },
                         "sass-loader"]
                 })
+            },
+            {
+                test: /\.(png|jpe?g|gif|ico)(\?\S*)?$/,
+                loader: 'url-loader'
             }
         ]
     },
@@ -101,6 +105,7 @@ const config = {
         }),
         new UglifyJSPlugin({
             uglifyOptions:{
+
             }
         }),
         extractCss,
@@ -111,10 +116,11 @@ const config = {
         extensions:[".js",".jsx",".scss"]
     },
     devServer: {
-        host:"www.shadouyouquan.com",
+        host:"fed.shadouyouquan.com",
         inline:true,
         hot:true,
-        compress:true
+        publicPath:"/",
+        compress:true,
     }
 };
 

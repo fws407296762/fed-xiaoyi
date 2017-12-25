@@ -9,15 +9,6 @@ import PropTypes from 'prop-types'
 import "./Transfer.scss";
 import 'whatwg-fetch';
 import { CSSTransition, TransitionGroup,Transition } from 'react-transition-group'
-const Fade = ({ children, ...props }) => (
-    <CSSTransition
-        {...props}
-        timeout={1000}
-        classNames="fade"
-    >
-        {children}
-    </CSSTransition>
-);
 class Transfer extends React.Component{
     constructor(props){
         super(props);
@@ -25,8 +16,7 @@ class Transfer extends React.Component{
             xyAccount:"",
             xyPassport:"",
             loginStatus:true,
-            loginTip:"",
-            items: ['hello', 'world', 'click', 'me']
+            loginTip:""
         };
 
         this.handleXYAccountChange = this.handleXYAccountChange.bind(this);
@@ -98,25 +88,15 @@ class Transfer extends React.Component{
     render(){
         let loginStatus = this.state.loginStatus;
         let {user} = this.props;
-        const items = this.state.items.map((item,i) => (
-            <div key={item}>
-                {item}
-            </div>
-        ));
         return (
             <div className="transfer-box">
                 <div id="xyBox" className="split xy-box">
-                    <Transition className='xy-transition-group'>
-
-                            {
-                                !user ?
-                                    (
-                                        <CSSTransition
-                                            timeout={1000}
-                                            classNames="xy-transition"
-                                        >
-                                        <form onSubmit={this.onLoginSubmit}>
-                                        <h3>登陆小蚁云存储</h3>
+                    {
+                        !user ?
+                            (
+                                <div className="xy-login-box">
+                                    <form onSubmit={this.onLoginSubmit}>
+                                        <h3 className="xy-login-title">登陆小蚁云存储</h3>
                                         <div className="form-item">
                                             <input type="text" onChange={this.handleXYAccountChange} value={this.state.xyAccount} placeholder="请输入小蚁云存储账号"/>
                                         </div>
@@ -126,22 +106,15 @@ class Transfer extends React.Component{
                                         <div className={'login-tip-'+(this.state.loginStatus ? 'suceess' : 'error')}>{this.state.loginTip}</div>
                                         <input type="submit" value="登陆"/>
                                     </form>
-                                        </CSSTransition>
-                                    ) : (
-                                    <CSSTransition
-                                        timeout={1000}
-                                        classNames="xy-transition"
-                                    >
-                                        <div>
-                                            1121212323
-                                            <button onClick={this.clearLoginUser}>退出登录</button>
-                                        </div>
-                                        </CSSTransition>
-                                )
+                                </div>
+                            ) : (
+                            <div>
+                                1121212323
+                                <button onClick={this.clearLoginUser}>退出登录</button>
+                            </div>
+                        )
 
-                            }
-
-                    </Transition>
+                    }
                 </div>
                 <div className="move-box"></div>
                 <div id="bdBox" className="split bd-box"></div>
