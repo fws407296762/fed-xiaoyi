@@ -51,11 +51,13 @@ class Transfer extends React.Component{
         }).then(function(res){
             let code = parseInt(res.code);
             let msg = res.msg;
+            if(!code){
+                onLoginSubmitProps(account)
+            }
             t.setState({
                 loginStatus:!!code,
                 loginTip:msg
-            })
-            onLoginSubmitProps(account)
+            });
         });
         return false;
     }
@@ -95,16 +97,16 @@ class Transfer extends React.Component{
                         !user ?
                             (
                                 <div className="xy-login-box">
-                                    <form onSubmit={this.onLoginSubmit}>
+                                    <form className="xy-login-form" onSubmit={this.onLoginSubmit}>
                                         <h3 className="xy-login-title">登陆小蚁云存储</h3>
                                         <div className="form-item">
-                                            <input type="text" onChange={this.handleXYAccountChange} value={this.state.xyAccount} placeholder="请输入小蚁云存储账号"/>
+                                            <input type="text" onChange={this.handleXYAccountChange} value={this.state.xyAccount} placeholder="请输入小蚁云存储手机号"/>
                                         </div>
                                         <div className="form-item">
                                             <input type="password" name="" onChange={this.handleXYPassportChange} value={this.state.xyPassport} placeholder="请输入小蚁云存储密码" id=""/>
                                         </div>
-                                        <div className={'login-tip-'+(this.state.loginStatus ? 'suceess' : 'error')}>{this.state.loginTip}</div>
-                                        <input type="submit" value="登陆"/>
+                                        <div className={'login-tip-'+(this.state.loginStatus ? 'error' : 'success')}>{this.state.loginTip}</div>
+                                        <input type="submit" className="xy-login-btn" value="登陆"/>
                                     </form>
                                 </div>
                             ) : (
@@ -156,13 +158,14 @@ class Transfer extends React.Component{
             let dx = currentX - startX;
             xySize = (dx / eleWidth) * percentage;
             bdSize = percentage - xySize;
+            if(xySize <=20 || bdSize <= 15){return false}
             $xyBox.style.width = "calc("+xySize+"% - 5px)";
             $bdBox.style.width = "calc("+bdSize+"% - 5px)";
         }
     }
 }
 
-Transfer.PropTypes = {
+Transfer.propTypes = {
     user:PropTypes.string.isRequired,
     onLoginSubmitProps: PropTypes.func.isRequired,
     onLogOutSubmitProps:PropTypes.func.isRequired

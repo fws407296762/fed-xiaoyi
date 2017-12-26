@@ -49,7 +49,7 @@ const config = {
             },
             {
                 test: /\.js$/,
-                loaders: ['react-hot-loader/webpack', 'babel-loader'],
+                loaders: ['babel-loader'],
                 include: path.join(__dirname, 'src')
             },
             {
@@ -89,8 +89,8 @@ const config = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name:"vendor",
-            filename:"static/js/vendor.js"
+            name:"vendors",
+            filename:"static/js/vendors.js"
         }), //合并公共部分
         new HtmlWebpackPlugin({
             template:"./index.html",
@@ -104,8 +104,9 @@ const config = {
             }
         }),
         new UglifyJSPlugin({
+			sourceMap:true,
             uglifyOptions:{
-
+				compress:false
             }
         }),
         extractCss,
@@ -115,6 +116,7 @@ const config = {
     resolve: {
         extensions:[".js",".jsx",".scss"]
     },
+	devtool:"cheap-module-eval-source-map",
     devServer: {
         host:"fed.shadouyouquan.com",
         inline:true,
