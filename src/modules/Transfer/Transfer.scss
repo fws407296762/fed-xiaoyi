@@ -85,7 +85,13 @@ html,body,#root,.router-view,.transfer-box{
         cursor: pointer;
         border-radius:4px;
     }
+    .login-tip-error,.login-tip-success{
+        margin-top:5px;
+    }
     .login-tip-error{
         color: #ef5b01;
+    }
+    .login-tip-success{
+        color: #3fb47d;
     }
 }

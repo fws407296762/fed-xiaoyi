@@ -40,24 +40,50 @@ class Transfer extends React.Component{
         let {onLoginSubmitProps} = this.props;
         let account = this.state.xyAccount;
         let passport = this.state.xyPassport;
+        t.setState({
+            loginStatus:2
+        });
+        if(!account){
+            t.setState({
+                loginStatus:1,
+                loginTip:"请输入小蚁云存储手机号"
+            });
+            return false;
+        }
+        if(!passport){
+            t.setState({
+                loginStatus:1,
+                loginTip:"请输入小蚁云存储密码"
+            });
+            return false;
+        }
         let loginXYRequestPromise = this.loginXYRequest({
             data:{
                 account:account,
                 passport:passport
             }
         });
+
         loginXYRequestPromise.then(function(resopnse){
             return resopnse.json();
         }).then(function(res){
             let code = parseInt(res.code);
             let msg = res.msg;
             if(!code){
-                onLoginSubmitProps(account)
+                t.setState({
+                    loginStatus:!!code,
+                    loginTip:msg
+                });
+                setTimeout(function(){
+                    onLoginSubmitProps(account)
+                },1000)
+            }else{
+                t.setState({
+                    loginStatus:!!code,
+                    loginTip:msg
+                });
             }
-            t.setState({
-                loginStatus:!!code,
-                loginTip:msg
-            });
+
         });
         return false;
     }
@@ -105,15 +131,18 @@ class Transfer extends React.Component{
                                         <div className="form-item">
                                             <input type="password" name="" onChange={this.handleXYPassportChange} value={this.state.xyPassport} placeholder="请输入小蚁云存储密码" id=""/>
                                         </div>
-                                        <div className={'login-tip-'+(this.state.loginStatus ? 'error' : 'success')}>{this.state.loginTip}</div>
+                                        {
+                                            this.state.loginStatus !== 2 && <div
+                                                className={'login-tip-' + (this.state.loginStatus ? 'error' : 'success')}>{this.state.loginTip}</div>
+                                        }
+
                                         <input type="submit" className="xy-login-btn" value="登陆"/>
                                     </form>
                                 </div>
                             ) : (
-                            <div>
-                                1121212323
-                                <button onClick={this.clearLoginUser}>退出登录</button>
-                            </div>
+                            <templete>
+
+                            </templete>
                         )
 
                     }
