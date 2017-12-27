@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import "./Transfer.scss";
 import 'whatwg-fetch';
 import { CSSTransition, TransitionGroup,Transition } from 'react-transition-group'
+import Xyvideo from "../xyVideo";
 class Transfer extends React.Component{
     constructor(props){
         super(props);
@@ -141,10 +142,9 @@ class Transfer extends React.Component{
                                 </div>
                             ) : (
                             <templete>
-
+                                <Xyvideo></Xyvideo>
                             </templete>
                         )
-
                     }
                 </div>
                 <div className="move-box"></div>
